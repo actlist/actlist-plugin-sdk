@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.silentsoft</groupId>
 	<artifactId>actlist-plugin-sdk</artifactId>
@@ -10,13 +12,33 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		
+
 		<mainClass>Plugin</mainClass>
 	</properties>
+	<repositories>
+		<repository>
+			<id>silentsoft-repository</id>
+			<url>http://nexus.silentsoft.org/repository/maven-releases</url>
+		</repository>
+		<repository>
+			<id>silentsoft-snapshot-repository</id>
+			<url>http://nexus.silentsoft.org/repository/maven-snapshots</url>
+			<snapshots>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
 			<id>silentsoft-repository</id>
 			<url>http://nexus.silentsoft.org/repository/maven-releases</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>silentsoft-snapshot-repository</id>
+			<url>http://nexus.silentsoft.org/repository/maven-snapshots</url>
+			<snapshots>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
 	<build>
@@ -73,7 +95,7 @@
 						<descriptorRef>assembly</descriptorRef>
 					</descriptorRefs>
 					<finalName>${project.artifactId}-${project.version}</finalName>
-        			<appendAssemblyId>false</appendAssemblyId>
+					<appendAssemblyId>false</appendAssemblyId>
 				</configuration>
 				<executions>
 					<execution>
@@ -92,5 +114,9 @@
 			<id>maven-releases</id>
 			<url>http://nexus.silentsoft.org/repository/maven-releases</url>
 		</repository>
+		<snapshotRepository>
+			<id>maven-snapshots</id>
+			<url>http://nexus.silentsoft.org/repository/maven-snapshots</url>
+		</snapshotRepository>
 	</distributionManagement>
 </project>
